@@ -4,7 +4,7 @@
 
 list_t *init(void)
 {
-    list_t *list = malloc(sizeof(list_t));
+    list_t *list = (list_t *)malloc(sizeof(list_t));
     if (list == NULL)
     {
         printf("Failed to allocate memory to create a collection\n");
@@ -28,7 +28,7 @@ size_t getSize(list_t *list)
 
 void push_front(list_t *list, void *data)
 {
-    list_node_t *node = malloc(sizeof(list_node_t));
+    list_node_t *node = (list_node_t *)malloc(sizeof(list_node_t));
     if (!node)
     {
         perror("Error allocating memory for a list node\n");
@@ -59,7 +59,7 @@ void push_back(list_t *list, void *data)
         return;
     }
 
-    list_node_t *node = malloc(sizeof(list_node_t));
+    list_node_t *node = (list_node_t *)malloc(sizeof(list_node_t));
     if (!node)
     {
         perror("Error allocating memory for a list node\n");
@@ -122,7 +122,7 @@ void pop_back(list_t *list)
         list->tail->pNext = NULL;
     }
     else
-    { 
+    {
         list->head = NULL;
         list->tail = NULL;
     }
@@ -152,7 +152,7 @@ void insert(list_t *list, void *data, int index)
         return;
     }
     //
-    list_node_t *newNode = malloc(sizeof(list_node_t));
+    list_node_t *newNode = (list_node_t *)malloc(sizeof(list_node_t));
 
     if (!newNode)
     {
@@ -248,7 +248,7 @@ int find_data(list_t *list, void *fdata)
     while (current)
     {
 
-        tmp = *(int *)current->data;  //there is have problem with gcc 11.4.0 in function
+        tmp = *(int *)current->data; // there is have problem with gcc 11.4.0 in function
         if (tmp == ftemp)
         {
             return count;
@@ -259,4 +259,3 @@ int find_data(list_t *list, void *fdata)
 
     return -1;
 }
-
