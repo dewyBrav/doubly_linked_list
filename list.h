@@ -35,5 +35,10 @@ void *getFromFront(list_t *list);
 void *getFromBack(list_t *list);
 void print_list(list_t *list);
 int find_data(list_t *list, void *fdata);
+//не реализовано
+void swapIndex(list_node_t * list, int firstIndex, int SecondIndex); //swap нод по индексу
+void swap(list_t * list); //свап по итератору
+void rprint_list(list_t * list); //reverse print
+
 
 #endif
