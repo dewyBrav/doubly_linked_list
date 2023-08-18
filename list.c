@@ -10,7 +10,7 @@ list_t *init(void)
         printf("Failed to allocate memory to create a collection\n");
         return NULL;
     }
-    list->size = 0;
+    list->size = 0; //!!
     list->head = list->tail = NULL;
 
     return list;
